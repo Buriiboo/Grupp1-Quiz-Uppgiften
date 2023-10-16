@@ -1,0 +1,14 @@
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\bin\Debug\net7.0\Grupp1-Quiz-Uppgiften.exe
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\bin\Debug\net7.0\Grupp1-Quiz-Uppgiften.deps.json
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\bin\Debug\net7.0\Grupp1-Quiz-Uppgiften.runtimeconfig.json
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\bin\Debug\net7.0\Grupp1-Quiz-Uppgiften.dll
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\bin\Debug\net7.0\Grupp1-Quiz-Uppgiften.pdb
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\obj\Debug\net7.0\Grupp1-Quiz-Uppgiften.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\obj\Debug\net7.0\Grupp1-Quiz-Uppgiften.AssemblyInfoInputs.cache
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\obj\Debug\net7.0\Grupp1-Quiz-Uppgiften.AssemblyInfo.cs
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\obj\Debug\net7.0\Grupp1-Quiz-Uppgiften.csproj.CoreCompileInputs.cache
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\obj\Debug\net7.0\Grupp1-Quiz-Uppgiften.dll
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\obj\Debug\net7.0\refint\Grupp1-Quiz-Uppgiften.dll
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\obj\Debug\net7.0\Grupp1-Quiz-Uppgiften.pdb
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\obj\Debug\net7.0\Grupp1-Quiz-Uppgiften.genruntimeconfig.cache
+C:\Users\Burai\OneDrive\Documents\GitHub\Grupp1-Quiz-Uppgiften\obj\Debug\net7.0\ref\Grupp1-Quiz-Uppgiften.dll
