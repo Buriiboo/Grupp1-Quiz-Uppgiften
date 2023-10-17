@@ -42,6 +42,7 @@ namespace Huvudmeny
                     case "3":
                         Console.WriteLine("You selected Option 3.");
                         // Add code for admin-options here
+                        // 
                         break;
 
                     case "4":
