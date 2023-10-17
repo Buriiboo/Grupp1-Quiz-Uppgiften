@@ -1,5 +1,5 @@
 using System;
-
+/*
 void CreateQuestion(string questionText, QuestionType questionType, int points)
     {
         Question question;
@@ -30,4 +30,4 @@ void CreateQuestion(string questionText, QuestionType questionType, int points)
         question.Points = points;
 
         questions.Add(question);
-    }
+    }*/

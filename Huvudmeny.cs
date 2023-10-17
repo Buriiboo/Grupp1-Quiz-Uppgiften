@@ -1,8 +1,10 @@
 ﻿using System;
 
-class Program
+namespace Huvudmeny
 {
-    static void Main(string[] args)
+public class Program
+{
+    public static void Main(string[] args)
     {
         bool isRunning = true;
 
@@ -60,4 +62,5 @@ class Program
         Console.WriteLine($"Welcome, {userName}! Starting the game...");
         // Add your game logic here
     }
+}
 }
