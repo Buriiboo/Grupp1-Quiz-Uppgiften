@@ -1,4 +1,5 @@
 ﻿using System;
+using Questions;
 
 namespace Huvudmeny
 {
@@ -50,20 +51,21 @@ namespace Huvudmeny
                         break;
                 }
 
-                Console.WriteLine(); // Add a line break for readability
-            }
+            Console.WriteLine(); // Add a line break for readability
         }
-        public static void UserName()
-        {
-            Console.WriteLine("What is your name?: ");
-            string? userName = Console.ReadLine();
-        }
-
-        public static void PlayGame(string userName)
-        {
-            Console.WriteLine($"Welcome, {userName}! Starting the game...");
-            // Add your game logic here
-        }
-        
     }
+
+    static void UserName()
+    {
+        Console.WriteLine("What is your name?: ");
+        string name = Console.ReadLine();
+        PlayGame(name); // Call the PlayGame method with the user's name
+    }
+
+    static void PlayGame(string userName)
+    {
+        Console.WriteLine($"Welcome, {userName}! Starting the game...");
+        // Add your game logic here
+    }
+}
 }

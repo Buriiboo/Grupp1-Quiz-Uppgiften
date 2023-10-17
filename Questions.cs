@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
+namespace Questions
+{
 public class Freetext
 {
     public string FreetextQuestion { get; set; }
@@ -84,4 +86,5 @@ public class QuizApplication
 
         return randomQuestion;
     }
+}
 }
