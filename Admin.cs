@@ -1,33 +1,15 @@
 using System;
-
-void CreateQuestion(string questionText, QuestionType questionType, int points)
+using Huvudmeny;
+using Questions;
+using Game;
+namespace Admin
+{
+    public class Admin
     {
-        Question question;
-        switch (questionType)
+    public void ShowAllQuestions()
         {
-            case QuestionType.Freetext:
-                question = new FreetextQuestion();
-                break;
-
-            case QuestionType.MultipleChoice:
-                question = new MultipleChoiceQuestion();
-                break;
-
-            case QuestionType.Numeric:
-                question = new NumericQuestion();
-                break;
-
-            case QuestionType.Year:
-                question = new YearQuestion();
-                break;
-
-            default:
-                throw new ArgumentException("Invalid question type.");
+            FreetextQuestion freetextQuestion = new FreetextQuestion();
+            freetextQuestion.JsonLoadFreetextQuestion();
         }
-
-        question.QuestionText = questionText;
-        question.QuestionType = questionType;
-        question.Points = points;
-
-        questions.Add(question);
     }
+}

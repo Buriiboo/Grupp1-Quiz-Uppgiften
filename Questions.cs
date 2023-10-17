@@ -19,61 +19,45 @@ namespace Questions
 
     public class FreetextQuestion
     {
-        public List<Freetext> FreetextQuestionList { get; set; }
+        private List<Freetext> questionList;
+        private List<Freetext> askedQuestions;
 
         public FreetextQuestion()
         {
-            FreetextQuestionList = new List<Freetext>();
+            questionList = new List<Freetext>();
+            askedQuestions = new List<Freetext>();
         }
 
         public void FreetextQuestionAdd(string question, string correctAnswer)
         {
             JsonLoadFreetextQuestion();
-            FreetextQuestionList.Add(new Freetext(question, correctAnswer));
+            Freetext newQuestion = new Freetext(question, correctAnswer);
+            questionList.Add(newQuestion);
             JsonSaveFreetextQuestion();
         }
 
         public void JsonSaveFreetextQuestion()
         {
-            string jsonFreetextQuestion = JsonSerializer.Serialize(FreetextQuestionList);
+            string jsonFreetextQuestion = JsonSerializer.Serialize(questionList);
             File.WriteAllText("freetextQuestion.json", jsonFreetextQuestion);
         }
 
         public void JsonLoadFreetextQuestion()
         {
             string jsonFreetextQuestion = File.ReadAllText("freetextQuestion.json");
-            FreetextQuestionList = JsonSerializer.Deserialize<List<Freetext>>(jsonFreetextQuestion);
+            questionList = JsonSerializer.Deserialize<List<Freetext>>(jsonFreetextQuestion);
         }
 
         public List<Freetext> ShowFreetextQuestion()
         {
             JsonLoadFreetextQuestion();
-            for (int i = 0; i < FreetextQuestionList.Count; i++)
+            for (int i = 0; i < questionList.Count; i++)
             {
-                Console.WriteLine($"Fråga {FreetextQuestionList[i].FreetextQuestion}\nSvar: {FreetextQuestionList[i].CorrectAnswer}");
+                Console.WriteLine($"Fråga {questionList[i].FreetextQuestion}\nSvar: {questionList[i].CorrectAnswer}");
                 Console.WriteLine("\n");
             }
             Console.ReadLine();
-            return FreetextQuestionList;
-        }
-    }
-
-        public Freetext GetRandomQuestion()
-        {
-            if (questions.Count == 0)
-                return null;
-
-            Random random = new Random();
-            int index = random.Next(questions.Count);
-            Freetext randomQuestion = questions[index];
-
-            // Remove the question from the available questions
-            questions.RemoveAt(index);
-
-            // Add the question to the asked questions
-            askedQuestions.Add(randomQuestion);
-
-            return randomQuestion;
+            return questionList;
         }
     }
 }

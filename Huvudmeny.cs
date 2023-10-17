@@ -10,7 +10,7 @@ namespace Huvudmeny
 
         public static void Main(string[] args)
         {
-            
+            FreetextQuestion questions = new FreetextQuestion();
             bool isRunning = true;
 
             while (isRunning)
@@ -41,8 +41,44 @@ namespace Huvudmeny
 
                     case "3":
                         Console.WriteLine("You selected Option 3.");
-                        // Add code for admin-options here
-                        // 
+                        bool runAdmin = true;
+                        System.Console.WriteLine("Select admin option: ");
+                        while(runAdmin)
+                        {
+                            System.Console.WriteLine("1. Show all Questions of a specific type");
+                            System.Console.WriteLine("2. Add a Question of a specific type");
+                            System.Console.WriteLine("3. Show all Questions of every type");
+                            System.Console.WriteLine("4. Remove a question?");
+                            System.Console.WriteLine("5. Return");
+                            userInput = Console.ReadLine();
+                            switch(userInput)
+                        
+                            {
+                                case "1":
+                                    
+                                    List<Freetext> questionList = questions.ShowFreetextQuestion();
+
+                                    for(int i = 0; i < questionList.Count; i++)
+                                    {
+                                    System.Console.WriteLine($"Question {i + 1}: {questionList[i].FreetextQuestion} ");
+                                    }
+                                    break;
+                                case "2":
+                                    
+                                
+                                
+                                    break;
+                                case "3":
+
+                                
+                                
+                                    break;
+                                case "4":
+
+                                    runAdmin = false;
+                                    break;
+                            }
+                        }
                         break;
 
                     case "4":
@@ -71,8 +107,8 @@ namespace Huvudmeny
         Console.WriteLine($"Welcome, {userName}! Starting the game...");
         // Add your game logic here ConsoleWriteLines osv
 
-        QuizApplication();
+        
 
     }
 }
-}//blabalbala
+}
