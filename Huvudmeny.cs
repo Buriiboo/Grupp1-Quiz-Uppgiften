@@ -21,7 +21,7 @@ namespace Huvudmeny
                 Console.WriteLine("4. Exit");
                 Console.Write("Enter your choice: ");
 
-                string userInput = Console.ReadLine();
+                string? userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
@@ -29,6 +29,7 @@ namespace Huvudmeny
                         Console.WriteLine("You selected Option 1.");
                         UserName(); // Call the UserName method for playing the game
                         PlayGame(userName); // Call the PlayGame method with the user's name
+
 
                         break;
 
@@ -59,14 +60,16 @@ namespace Huvudmeny
     public static void UserName()
     {
         Console.WriteLine("What is your name?: ");
-        string userName = Console.ReadLine();
+        userName = Console.ReadLine();
         
     }
 
-    static void PlayGame(string userName)
+    public static void PlayGame(string userName)
     {
         Console.WriteLine($"Welcome, {userName}! Starting the game...");
         // Add your game logic here
+
+
     }
 }
 }
