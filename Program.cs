@@ -1,19 +1,5 @@
 ﻿using System;
 
-    class UserName()
-    {
-        Console.WriteLine("What is your name?: ");
-        string name = Console.ReadLine();
-        PlayGame();
-
-    }
-
-    class PlayGame()
-    {
-        
-    }
-
-
 class Program
 {
     static void Main(string[] args)
@@ -35,17 +21,17 @@ class Program
             {
                 case "1":
                     Console.WriteLine("You selected Option 1.");
-                    UserName();
+                    UserName(); // Call the UserName method for playing the game
                     break;
 
                 case "2":
                     Console.WriteLine("You selected Option 2.");
-                    // Add your code for Option 2 here
+                    // Add code for Hi-score here
                     break;
 
                 case "3":
                     Console.WriteLine("You selected Option 3.");
-                    // Add your code for Option 3 here
+                    // Add code for admin-options here
                     break;
 
                 case "4":
@@ -60,6 +46,18 @@ class Program
 
             Console.WriteLine(); // Add a line break for readability
         }
+    }
 
+    static void UserName()
+    {
+        Console.WriteLine("What is your name?: ");
+        string name = Console.ReadLine();
+        PlayGame(name); // Call the PlayGame method with the user's name
+    }
+
+    static void PlayGame(string userName)
+    {
+        Console.WriteLine($"Welcome, {userName}! Starting the game...");
+        // Add your game logic here
     }
 }
