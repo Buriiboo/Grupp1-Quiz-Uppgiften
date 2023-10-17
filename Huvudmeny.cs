@@ -5,7 +5,8 @@ namespace Huvudmeny
 {
     public class Program
     {
-    
+        private static string userName; // Declare userName at a scope accessible to both methods
+
         public static void Main(string[] args)
         {
             
@@ -55,11 +56,11 @@ namespace Huvudmeny
         }
     }
 
-    static void UserName()
+    public static void UserName()
     {
         Console.WriteLine("What is your name?: ");
-        string name = Console.ReadLine();
-        PlayGame(name); // Call the PlayGame method with the user's name
+        string userName = Console.ReadLine();
+        
     }
 
     static void PlayGame(string userName)
