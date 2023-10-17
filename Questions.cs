@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-public class Fråga
+public class Freetext
 {
     public string FreetextQuestion { get; set; }
     public string CorrectAnswer { get; set; }
 
-    public Fråga(string question, string correctAnswer)
+    public Freetext(string question, string correctAnswer)
     {
         FreetextQuestion = question;
         CorrectAnswer = correctAnswer;
@@ -17,17 +17,17 @@ public class Fråga
 
 public class FreetextQuestion
 {
-    public List<Fråga> FreetextQuestionList { get; set; }
+    public List<Freetext> FreetextQuestionList { get; set; }
 
     public FreetextQuestion()
     {
-        FreetextQuestionList = new List<Fråga>();
+        FreetextQuestionList = new List<Freetext>();
     }
 
     public void FreetextQuestionAdd(string question, string correctAnswer)
     {
         JsonLoadFreetextQuestion();
-        FreetextQuestionList.Add(new Fråga(question, correctAnswer));
+        FreetextQuestionList.Add(new Freetext(question, correctAnswer));
         JsonSaveFreetextQuestion();
     }
 
@@ -40,10 +40,10 @@ public class FreetextQuestion
     public void JsonLoadFreetextQuestion()
     {
         string jsonFreetextQuestion = File.ReadAllText("freetextQuestion.json");
-        FreetextQuestionList = JsonSerializer.Deserialize<List<Fråga>>(jsonFreetextQuestion);
+        FreetextQuestionList = JsonSerializer.Deserialize<List<Freetext>>(jsonFreetextQuestion);
     }
 
-    public List<Fråga> ShowFreetextQuestion()
+    public List<Freetext> ShowFreetextQuestion()
     {
         JsonLoadFreetextQuestion();
         for (int i = 0; i < FreetextQuestionList.Count; i++)
@@ -58,23 +58,23 @@ public class FreetextQuestion
 
 public class QuizApplication
 {
-    private List<Fråga> questions;
-    private List<Fråga> askedQuestions;
+    private List<Freetext> questions;
+    private List<Freetext> askedQuestions;
 
     public QuizApplication()
     {
-        questions = new List<Fråga>();
-        askedQuestions = new List<Fråga>();
+        questions = new List<Freetext>();
+        askedQuestions = new List<Freetext>();
     }
 
-    public Fråga GetRandomQuestion()
+    public Freetext GetRandomQuestion()
     {
         if (questions.Count == 0)
             return null;
 
         Random random = new Random();
         int index = random.Next(questions.Count);
-        Fråga randomQuestion = questions[index];
+        Freetext randomQuestion = questions[index];
 
         // Remove the question from the available questions
         questions.RemoveAt(index);

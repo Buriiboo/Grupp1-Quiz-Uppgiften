@@ -2,65 +2,68 @@
 
 namespace Huvudmeny
 {
-public class Program
-{
-    public static void Main(string[] args)
+    public class Program
     {
-        bool isRunning = true;
-
-        while (isRunning)
+    
+        public static void Main(string[] args)
         {
-            Console.WriteLine("===== Quiz! =====");
-            Console.WriteLine("1. Play");
-            Console.WriteLine("2. Hi-score"); // lägg till hi-score uppgiften. Json?
-            Console.WriteLine("3. Admin ");
-            Console.WriteLine("4. Exit");
-            Console.Write("Enter your choice: ");
+            
+            bool isRunning = true;
 
-            string userInput = Console.ReadLine();
-
-            switch (userInput)
+            while (isRunning)
             {
-                case "1":
-                    Console.WriteLine("You selected Option 1.");
-                    UserName(); // Call the UserName method for playing the game
-                    break;
+                Console.WriteLine("===== Quiz! =====");
+                Console.WriteLine("1. Play");
+                Console.WriteLine("2. Hi-score"); // lägg till hi-score uppgiften. Json?
+                Console.WriteLine("3. Admin ");
+                Console.WriteLine("4. Exit");
+                Console.Write("Enter your choice: ");
 
-                case "2":
-                    Console.WriteLine("You selected Option 2.");
-                    // Add code for Hi-score here
-                    break;
+                string userInput = Console.ReadLine();
 
-                case "3":
-                    Console.WriteLine("You selected Option 3.");
-                    // Add code for admin-options here
-                    break;
+                switch (userInput)
+                {
+                    case "1":
+                        Console.WriteLine("You selected Option 1.");
+                        UserName(); // Call the UserName method for playing the game
+                        PlayGame(userName); // Call the PlayGame method with the user's name
 
-                case "4":
-                    isRunning = false;
-                    Console.WriteLine("Exiting the program. Goodbye!");
-                    break;
+                        break;
 
-                default:
-                    Console.WriteLine("Invalid choice. Please try again.");
-                    break;
+                    case "2":
+                        Console.WriteLine("You selected Option 2.");
+                        // Add code for Hi-score here
+                        break;
+
+                    case "3":
+                        Console.WriteLine("You selected Option 3.");
+                        // Add code for admin-options here
+                        break;
+
+                    case "4":
+                        isRunning = false;
+                        Console.WriteLine("Exiting the program. Goodbye!");
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+
+                Console.WriteLine(); // Add a line break for readability
             }
-
-            Console.WriteLine(); // Add a line break for readability
         }
-    }
+        public static void UserName()
+        {
+            Console.WriteLine("What is your name?: ");
+            string? userName = Console.ReadLine();
+        }
 
-    static void UserName()
-    {
-        Console.WriteLine("What is your name?: ");
-        string name = Console.ReadLine();
-        PlayGame(name); // Call the PlayGame method with the user's name
+        public static void PlayGame(string userName)
+        {
+            Console.WriteLine($"Welcome, {userName}! Starting the game...");
+            // Add your game logic here
+        }
+        
     }
-
-    static void PlayGame(string userName)
-    {
-        Console.WriteLine($"Welcome, {userName}! Starting the game...");
-        // Add your game logic here
-    }
-}
 }
