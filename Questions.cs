@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Questions
 {
@@ -10,12 +11,13 @@ namespace Questions
         public string FreetextQuestion { get; set; }
         public string CorrectAnswer { get; set; }
 
-        public Freetext(string question, string correctAnswer)
+        public Freetext(string freetextQuestion, string correctAnswer)
         {
-            FreetextQuestion = question;
+            FreetextQuestion = freetextQuestion;
             CorrectAnswer = correctAnswer;
         }
     }
+
 
     public class FreetextQuestion
     {
@@ -42,22 +44,49 @@ namespace Questions
             File.WriteAllText("freetextQuestion.json", jsonFreetextQuestion);
         }
 
-        public void JsonLoadFreetextQuestion()
+   public void JsonLoadFreetextQuestion()
+    {
+        try
         {
             string jsonFreetextQuestion = File.ReadAllText("freetextQuestion.json");
             questionList = JsonSerializer.Deserialize<List<Freetext>>(jsonFreetextQuestion);
         }
-
-        public List<Freetext> ShowFreetextQuestion()
+        catch (Exception ex)
         {
-            JsonLoadFreetextQuestion();
-            for (int i = 0; i < questionList.Count; i++)
-            {
-                Console.WriteLine($"Fråga {questionList[i].FreetextQuestion}\nSvar: {questionList[i].CorrectAnswer}");
-                Console.WriteLine("\n");
-            }
-            Console.ReadLine();
-            return questionList;
+            Console.WriteLine("An error occurred while deserializing JSON:");
+            Console.WriteLine(ex.Message);
         }
     }
+
+    public List<Freetext> ShowFreetextQuestion()
+{
+    JsonLoadFreetextQuestion();
+
+    if (questionList != null && questionList.Count > 0)
+    {
+        Console.WriteLine("Questions loaded successfully:");
+        int questionNumber = 1;
+
+        foreach (var question in questionList)
+        {
+            Console.WriteLine($"Question {questionNumber}:");
+            Console.WriteLine($"Fråga: {question.FreetextQuestion}");
+            Console.WriteLine($"Svar: {question.CorrectAnswer}");
+            Console.WriteLine();
+            questionNumber++;
+        }
+
+        return questionList;
+    }
+    else
+    {
+        Console.WriteLine("No questions found.");
+        Console.ReadLine();
+        return new List<Freetext>();
+    }
 }
+
+
+    }
+}
+

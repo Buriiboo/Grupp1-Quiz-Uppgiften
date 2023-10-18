@@ -9,7 +9,8 @@ namespace Admin
     public void ShowAllQuestions()
         {
             FreetextQuestion freetextQuestion = new FreetextQuestion();
-            freetextQuestion.JsonLoadFreetextQuestion();
+            freetextQuestion.ShowFreetextQuestion();
+
         }
     }
 }

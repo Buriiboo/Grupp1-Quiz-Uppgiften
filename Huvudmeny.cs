@@ -1,6 +1,7 @@
 ﻿using System;
 using Questions;
 using Game;
+using Admin;
 
 namespace Huvudmeny
 {
@@ -56,17 +57,18 @@ namespace Huvudmeny
                             {
                                 case "1":
                                     
-                                    List<Freetext> questionList = questions.ShowFreetextQuestion();
+                                    FreetextQuestion freetextQuestionManager = new FreetextQuestion();
 
-                                    for(int i = 0; i < questionList.Count; i++)
-                                    {
-                                    System.Console.WriteLine($"Question {i + 1}: {questionList[i].FreetextQuestion} ");
-                                    }
+                                    
+                                    // Display all questions
+                                    freetextQuestionManager.ShowFreetextQuestion();
+
+                                    Console.WriteLine("Press any key to exit...");
+                                    Console.ReadKey();
                                     break;
                                 case "2":
-                                    
-                                
-                                
+                                    FreetextQuestion freetextQuestionManager= new FreetextQuestion();
+                                    freetextQuestionManager.FreetextQuestionAdd();
                                     break;
                                 case "3":
 
@@ -99,16 +101,19 @@ namespace Huvudmeny
     {
         Console.WriteLine("What is your name?: ");
         userName = Console.ReadLine();
-        
     }
 
     public static void PlayGame(string userName)
     {
-        Console.WriteLine($"Welcome, {userName}! Starting the game...");
-        // Add your game logic here ConsoleWriteLines osv
-
-        
-
+        if (userName != null)
+        {
+            Console.WriteLine($"Welcome, {userName}! Starting the game...");
+            // Add your game logic here ConsoleWriteLines osv
+        }
+        else
+        {
+            Console.WriteLine("Invalid user name.");
+        }
     }
 }
 }
