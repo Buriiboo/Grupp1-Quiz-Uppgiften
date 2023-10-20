@@ -1,6 +1,7 @@
 ﻿using System;
 using Questions;
 using Game;
+using Admin;
 
 namespace Huvudmeny
 {
@@ -10,7 +11,7 @@ namespace Huvudmeny
 
         public static void Main(string[] args)
         {
-            
+            FreetextQuestion questions = new FreetextQuestion();
             bool isRunning = true;
 
             while (isRunning)
@@ -41,7 +42,45 @@ namespace Huvudmeny
 
                     case "3":
                         Console.WriteLine("You selected Option 3.");
-                        // Add code for admin-options here
+                        bool runAdmin = true;
+                        System.Console.WriteLine("Select admin option: ");
+                        while(runAdmin)
+                        {
+                            System.Console.WriteLine("1. Show all Questions of a specific type");
+                            System.Console.WriteLine("2. Add a Question of a specific type");
+                            System.Console.WriteLine("3. Show all Questions of every type");
+                            System.Console.WriteLine("4. Remove a question?");
+                            System.Console.WriteLine("5. Return");
+                            userInput = Console.ReadLine();
+                            switch(userInput)
+                        
+                            {
+                                case "1":
+                                    
+                                    FreetextQuestion freetextQuestionManager = new FreetextQuestion();
+
+                                    
+                                    // Display all questions
+                                    freetextQuestionManager.ShowFreetextQuestion();
+
+                                    Console.WriteLine("Press any key to exit...");
+                                    Console.ReadKey();
+                                    break;
+                                case "2":
+                                    FreetextQuestion freetextQuestionManager= new FreetextQuestion();
+                                    freetextQuestionManager.FreetextQuestionAdd();
+                                    break;
+                                case "3":
+
+                                
+                                
+                                    break;
+                                case "4":
+
+                                    runAdmin = false;
+                                    break;
+                            }
+                        }
                         break;
 
                     case "4":
@@ -62,16 +101,19 @@ namespace Huvudmeny
     {
         Console.WriteLine("What is your name?: ");
         userName = Console.ReadLine();
-        
     }
 
     public static void PlayGame(string userName)
     {
-        Console.WriteLine($"Welcome, {userName}! Starting the game...");
-        // Add your game logic here ConsoleWriteLines osv
-
-        QuizApplication();
-
+        if (userName != null)
+        {
+            Console.WriteLine($"Welcome, {userName}! Starting the game...");
+            // Add your game logic here ConsoleWriteLines osv
+        }
+        else
+        {
+            Console.WriteLine("Invalid user name.");
+        }
     }
 }
-}//blabalbala
+}
