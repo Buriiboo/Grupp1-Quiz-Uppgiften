@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace HiScoreNamespace
+{
+    public class Hiscore
+    {
+        public string PlayerName { get; set; }
+        public int Score { get; set; }
+
+        public Hiscore(string playerName, int score)
+        {
+            PlayerName = playerName;
+            Score = score;
+        }
+    }
+
+    public class Scoreboard
+    {
+        private List<Hiscore> scores;
+
+        public Scoreboard()
+        {
+            scores = new List<Hiscore>();
+        }
+
+        public void AddScore(string playerName, int score)
+        {
+            Hiscore hiscore = new Hiscore(playerName, score);
+            scores.Add(hiscore);
+        }
+
+        public void DisplayScores()
+        {
+            Console.WriteLine("Player Scores:");
+            foreach (var playerScore in scores)
+            {
+                Console.WriteLine($"{playerScore.PlayerName}: {playerScore.Score}");
+            }
+        }
+
+        public void SortScoresDescending()
+        {
+            scores = scores.OrderByDescending(score => score.Score).ToList();
+        }
+    }
+}
