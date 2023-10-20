@@ -2,6 +2,7 @@
 using Questions;
 using Game;
 using Admin;
+using HiScoreNamespace;
 
 namespace Huvudmeny
 {
@@ -38,6 +39,8 @@ namespace Huvudmeny
                     case "2":
                         Console.WriteLine("You selected Option 2.");
                         // Add code for Hi-score here
+                        Scoreboard displayscore = new Scoreboard();
+                        displayscore.DisplayScore(); // Call the DisplayScore method from the HiScore class
                         break;
 
                     case "3":
@@ -71,7 +74,6 @@ namespace Huvudmeny
                                     freetextQuestionManager.FreetextQuestionAdd();
                                     break;
                                 case "3":
-
                                 
                                 
                                     break;
